@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "��#\u0000 \u0000h\u0000a\u0000b\u0000i\u0000t\u0000-\u0000t\u0000r\u0000a\u0000c\u0000k\u0000e\u0000r\u0000\r\u0000 \u0000",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec ts-node src/index.ts"
@@ -12,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.1",
-    "@prisma/client": "^7.4.1",
+    "@prisma/client": "6.19",
     "cookie": "^1.1.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
@@ -21,10 +22,10 @@
     "pg": "^8.18.0"
   },
   "devDependencies": {
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.3",
     "@types/pg": "^8.16.0",
     "nodemon": "^3.1.14",
-    "prisma": "^7.4.1",
+    "prisma": "6.19",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
