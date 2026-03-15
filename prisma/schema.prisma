@@ -14,10 +14,11 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id     Int     @id @default(autoincrement())
+  email  String  @unique
+  name   String?
+  posts  Post[]
+  habits Habit[]
 }
 
 model Post {
@@ -27,4 +28,24 @@ model Post {
   published Boolean @default(false)
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
+}
+
+model Habit {
+  id              Int      @id @default(autoincrement())
+  userId          Int
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name            String   @db.VarChar(50)
+  icon            String // fitness, food, work, health, etc.
+  color           String // 12 preset colors
+  frequencyType   String // 'daily', 'specific_days', 'custom'
+  daysOfWeek      String? // JSON array: ["Monday", "Tuesday", ...] for specific_days
+  customFrequency Int? // X times per week for custom frequency
+  goal            String? // "Do 50 pushups", "Read 30 pages", etc.
+  timeOfDay       String? // 'morning', 'afternoon', 'evening', 'anytime'
+  notes           String?  @db.VarChar(200)
+  startDate       DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
 }

@@ -21,7 +21,6 @@
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "ignoreDeprecations": "6.0",
     "forceConsistentCasingInFileNames": true,
     //  "typeRoots": ["./node_modules/@types", "./src/types"]
   },
